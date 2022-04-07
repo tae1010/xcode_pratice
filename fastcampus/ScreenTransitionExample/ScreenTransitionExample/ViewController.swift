@@ -18,6 +18,7 @@ class ViewController: UIViewController, SendDataDelegate {
 
     @IBAction func tapCodePushButton(_ sender: UIButton) {
         guard let viewController = self.storyboard?.instantiateViewController(identifier: "CodePushViewController") as? CodePushViewController else {return}
+        
         viewController.name = "kjt"
         self.navigationController?.pushViewController(viewController, animated: true)
     }
