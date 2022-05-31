@@ -119,7 +119,7 @@ extension ViewController : UITableViewDataSource {
         self.tasks.remove(at: indexPath.row)
         //편집모드에서 삭제할수 있고 편집모드를 들어가지 않아도 스와이프로 삭제가능
         tableView.deleteRows(at: [indexPath], with: .automatic)
-        
+
         //모든셀이 삭제되면 편집모드에서 빠져나오게 설정
         if self.tasks.isEmpty {
             self.doneButtonTap()
