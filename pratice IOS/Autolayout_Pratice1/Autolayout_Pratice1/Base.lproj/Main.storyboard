@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CfU-Rc-AJm">
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="TimesNewRoman.ttf">
+            <string>.SFUI-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="bJx-ZC-0pK">
+            <objects>
+                <viewController storyboardIdentifier="MainViewController" id="CfU-Rc-AJm" customClass="MainViewController" customModule="Autolayout_Pratice1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6Ti-at-qAC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="메인화면 입니다." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mNN-q3-3dk">
+                                <rect key="frame" x="128.33333333333331" y="74" width="157.33333333333331" height="26.666666666666671"/>
+                                <fontDescription key="fontDescription" name=".SFUI-Regular" family=".AppleSystemUIFont" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1WF-ah-wMg">
+                                <rect key="frame" x="148.66666666666666" y="115.66666666666667" width="116.66666666666666" height="34.333333333333329"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="팝업창 띄우기"/>
+                                <connections>
+                                    <action selector="showPopupButton:" destination="CfU-Rc-AJm" eventType="touchUpInside" id="PN4-dq-cdm"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="569-ev-2W6">
+                                <rect key="frame" x="106.66666666666667" y="165" width="200.66666666666663" height="34.333333333333343"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lrx-i4-CJj">
+                                        <rect key="frame" x="0.0" y="0.0" width="151" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="popup상태 바꾸기"/>
+                                        <connections>
+                                            <action selector="changePopupStatus:" destination="CfU-Rc-AJm" eventType="touchUpInside" id="guI-o1-oLp"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="상태" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lOX-af-vYU">
+                                        <rect key="frame" x="171" y="0.0" width="29.666666666666657" height="34.333333333333336"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="HyI-bZ-CeL"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="1WF-ah-wMg" firstAttribute="centerX" secondItem="6Ti-at-qAC" secondAttribute="centerX" id="1h2-Hv-z5E"/>
+                            <constraint firstItem="569-ev-2W6" firstAttribute="top" secondItem="1WF-ah-wMg" secondAttribute="bottom" constant="15" id="Ac7-DG-crO"/>
+                            <constraint firstItem="mNN-q3-3dk" firstAttribute="centerX" secondItem="6Ti-at-qAC" secondAttribute="centerX" id="Nl7-qM-JJo"/>
+                            <constraint firstItem="1WF-ah-wMg" firstAttribute="top" secondItem="mNN-q3-3dk" secondAttribute="bottom" constant="15" id="gRB-w0-Sa6"/>
+                            <constraint firstItem="mNN-q3-3dk" firstAttribute="top" secondItem="HyI-bZ-CeL" secondAttribute="top" constant="30" id="l5U-Iq-0s1"/>
+                            <constraint firstItem="569-ev-2W6" firstAttribute="centerX" secondItem="6Ti-at-qAC" secondAttribute="centerX" id="vD9-ef-Urg"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="popupStatusLabel" destination="lOX-af-vYU" id="pH6-8b-MWH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fSG-jN-kgh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-759.4202898550725" y="117.85714285714285"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="Yki-Yw-izE">
+            <objects>
+                <viewController storyboardIdentifier="detailViewController" id="iHT-2T-ieZ" customClass="DetailViewController" customModule="Autolayout_Pratice1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dzY-mv-VLS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="자세히 보기 화면" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RuD-89-xmS">
+                                <rect key="frame" x="141.66666666666666" y="436" width="130.99999999999997" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J0O-so-XAr">
+                                <rect key="frame" x="163.33333333333334" y="475" width="87.333333333333343" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="뒤로 가기"/>
+                                <connections>
+                                    <action selector="backButton:" destination="iHT-2T-ieZ" eventType="touchUpInside" id="HzN-82-zv1"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ddT-Te-MfK"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="J0O-so-XAr" firstAttribute="centerX" secondItem="dzY-mv-VLS" secondAttribute="centerX" id="AOn-Xy-cR3"/>
+                            <constraint firstItem="J0O-so-XAr" firstAttribute="top" secondItem="RuD-89-xmS" secondAttribute="bottom" constant="15" id="Rh5-3B-EAp"/>
+                            <constraint firstItem="RuD-89-xmS" firstAttribute="centerX" secondItem="dzY-mv-VLS" secondAttribute="centerX" id="gwl-Ny-zGc"/>
+                            <constraint firstItem="RuD-89-xmS" firstAttribute="centerY" secondItem="dzY-mv-VLS" secondAttribute="centerY" id="ubp-MB-tmn"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="APX-IW-D6w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="30" y="118"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
