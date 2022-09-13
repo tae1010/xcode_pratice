@@ -31,6 +31,7 @@ struct Temp: Codable {
     let feelsLike: Double
     let minTemp: Double
     let maxTemp: Double
+    //6295 076 472
     
     
     //서버에서 알려준 json key값이랑 mapping시켜줌

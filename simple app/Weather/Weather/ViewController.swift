@@ -28,7 +28,6 @@ class ViewController: UIViewController {
             self.getCurrentWeather(cityName: cityName)
             self.view.endEditing(true)
         }
-        
     }
     
     func configureView(weatherInformation: WeatherInformation) {

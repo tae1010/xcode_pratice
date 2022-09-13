@@ -7,12 +7,13 @@
 
 import UIKit
 
-class ViewController: UIViewController, SendDataDelegate {
+class ViewController: UIViewController {
 
     @IBOutlet weak var nameLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view.
     }
 
@@ -27,15 +28,12 @@ class ViewController: UIViewController, SendDataDelegate {
     @IBAction func tabCodePresentButton(_ sender: UIButton) {
         guard let viewController = self.storyboard?.instantiateViewController(identifier: "CodePresentViewController") as? CodePresentViewController else {return}
         viewController.modalPresentationStyle = .fullScreen
-        viewController.name = "kjt"
+        
         viewController.delegate = self
         self.present(viewController, animated: true, completion: nil)
     }
     
-    func sendData(name: String) {
-        self.nameLabel.text = name
-        self.nameLabel.sizeToFit()
-    }
+    
     
     //segue에서 쓰는 값전달 방식
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -53,3 +51,10 @@ class ViewController: UIViewController, SendDataDelegate {
     
 }
 
+extension ViewController: SendDataDelegate {
+    
+    func sendData(name: String) {
+        self.nameLabel.text = name
+        self.nameLabel.sizeToFit()
+    }
+}

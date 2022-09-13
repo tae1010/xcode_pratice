@@ -119,7 +119,7 @@
                                             <button opaque="NO" alpha="0.20000000000000001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VlN-mp-z51">
                                                 <rect key="frame" x="161.33333333333334" y="0.0" width="66.666666666666657" height="56.666666666666664"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" image="green_circle"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="green_circle" title=""/>
                                                 <connections>
                                                     <action selector="tabTextColorButton:" destination="Hkz-H8-Dip" eventType="touchUpInside" id="7Ej-Su-qBS"/>
                                                 </connections>

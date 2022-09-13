@@ -26,7 +26,9 @@ class CodePresentViewController: UIViewController {
     }
     
     @IBAction func tapBackButton(_ sender: UIButton) {
-        self.delegate?.sendData(name: "kjt")
+        self.delegate?.sendData(name: "Park")
         self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
 }
+
+
