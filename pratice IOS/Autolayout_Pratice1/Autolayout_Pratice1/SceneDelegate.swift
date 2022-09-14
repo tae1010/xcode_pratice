@@ -7,10 +7,12 @@
 
 import UIKit
 
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+    
 
     var window: UIWindow?
-    let checkPopup = UserDefault().loadUserDefault()
+    var checkPopup = UserDefault().loadUserdefault()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let _ = (scene as? UIWindowScene) else { return }
@@ -24,25 +26,28 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {
-        
+        let popupStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        print("checkPopup 상태", checkPopup)
+        if checkPopup {
+            guard let popupViewController = popupStoryboard.instantiateViewController(withIdentifier: "PopUpViewController") as? PopUpViewController else { return }
+            
+            popupViewController.modalPresentationStyle = .overFullScreen
+            popupViewController.modalTransitionStyle = .crossDissolve
+            
+            self.window?.makeKeyAndVisible()
+
+            self.window?.rootViewController?.present(popupViewController, animated: true)
+        }
     }
 
     func sceneWillResignActive(_ scene: UIScene) {
         // Called when the scene will move from an active state to an inactive state.
         // This may occur due to temporary interruptions (ex. an incoming phone call).
     }
-
     
     func sceneWillEnterForeground(_ scene: UIScene) {
-        let popupStoryboard = UIStoryboard(name: "Popup", bundle: nil)
         
-        if checkPopup {
-            let popupViewController = popupStoryboard.instantiateViewController(identifier: "PopUpViewController")
-            
-            popupViewController.modalPresentationStyle = .overCurrentContext
-            popupViewController.modalTransitionStyle = .crossDissolve
-            self.window?.rootViewController!.present(popupViewController, animated: true, completion: nil)
-        }
+        
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
@@ -53,6 +58,5 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Save changes in the application's managed object context when the application transitions to the background.
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
-
-
+    
 }

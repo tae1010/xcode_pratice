@@ -7,33 +7,27 @@
 
 import UIKit
 
-protocol CheckPopupDelegate: AnyObject {
-    func checkPopupDelegate(checkPopup: Bool)
-}
-
 class PopUpViewController: UIViewController {
 
-    @IBOutlet var backgroundView: UIView!
+    @IBOutlet var backgroundView: UIView! // backgroundView
     @IBOutlet weak var contentView: UIView! // 이미지뷰, 자세히보기 버튼, 다시보지않기 버튼, 닫기 버튼으로 구성
     @IBOutlet weak var detailButton: UIButton! // 자세히보기 버튼
-    
-    weak var delegate: CheckPopupDelegate?
 
     var checkPopup: Bool = true // popup창 상태
     
     override func viewDidLoad() {
-        print("popup창 띄우기")
+        print("popup viewdidload")
         super.viewDidLoad()
-
+        
         self.tabBackgroundView()
         self.configureContentView()
         self.configureDetailButton()
     }
 
     // MARK: - Action함수
-    
     // 자세히보기 버튼 클릭
     @IBAction func detailButton(_ sender: UIButton) {
+        
         guard let detailViewController = storyboard?.instantiateViewController(withIdentifier: "detailViewController") as? DetailViewController else { return }
 
         self.present(detailViewController, animated: true, completion: nil)
@@ -41,9 +35,9 @@ class PopUpViewController: UIViewController {
     
     // 다시보지않기 버튼클릭
     @IBAction func neverSeeButton(_ sender: UIButton) {
+        print("다시보지않기 버튼클릭")
         self.checkPopup = false
         UserDefault().saveUserdefault(checkPopup: self.checkPopup)
-        self.delegate?.checkPopupDelegate(checkPopup: self.checkPopup)
         self.dismiss(animated: true)
     }
 
@@ -52,13 +46,15 @@ class PopUpViewController: UIViewController {
         self.dismiss(animated: true)
     }
     
-    //backgroundView 클릭시 팝업창 닫기
+    // backgroundView 클릭시 팝업창 닫기
     private func tabBackgroundView() {
         let tabBackgroundView = UITapGestureRecognizer(target: self, action: #selector(tabBackgroundSelector))
         self.backgroundView.addGestureRecognizer(tabBackgroundView)
         self.backgroundView.isUserInteractionEnabled = true
     }
     
+    // MARK: - selector
+    // backgroundView 클릭 selector
     @objc func tabBackgroundSelector(sender: UITapGestureRecognizer) {
         self.dismiss(animated: true)
     }

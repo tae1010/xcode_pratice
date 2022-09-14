@@ -15,7 +15,6 @@
 		930301F328D0486F00F160A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 930301F128D0486F00F160A3 /* LaunchScreen.storyboard */; };
 		9303021928D06DB800F160A3 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9303021828D06DB800F160A3 /* MainViewController.swift */; };
 		931F8B0E28D09BD30009C7A7 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931F8B0D28D09BD30009C7A7 /* DetailViewController.swift */; };
-		931F8B1028D0B2B50009C7A7 /* Popup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 931F8B0F28D0B2B50009C7A7 /* Popup.storyboard */; };
 		931F8B1128D0C7220009C7A7 /* Autolayout_Pratice1.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 930301EC28D0486B00F160A3 /* Autolayout_Pratice1.xcdatamodeld */; };
 		931F8B1628D0C8020009C7A7 /* NanumGothicLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 931F8B1228D0C8020009C7A7 /* NanumGothicLight.otf */; };
 		931F8B1728D0C8020009C7A7 /* NanumGothicExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 931F8B1328D0C8020009C7A7 /* NanumGothicExtraBold.otf */; };
@@ -36,7 +35,6 @@
 		930301F428D0486F00F160A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9303021828D06DB800F160A3 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		931F8B0D28D09BD30009C7A7 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		931F8B0F28D0B2B50009C7A7 /* Popup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Popup.storyboard; sourceTree = "<group>"; };
 		931F8B1228D0C8020009C7A7 /* NanumGothicLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumGothicLight.otf; sourceTree = "<group>"; };
 		931F8B1328D0C8020009C7A7 /* NanumGothicExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumGothicExtraBold.otf; sourceTree = "<group>"; };
 		931F8B1428D0C8020009C7A7 /* NanumGothicBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumGothicBold.otf; sourceTree = "<group>"; };
@@ -83,7 +81,6 @@
 				9303021828D06DB800F160A3 /* MainViewController.swift */,
 				931F8B0D28D09BD30009C7A7 /* DetailViewController.swift */,
 				930301E928D0486B00F160A3 /* Main.storyboard */,
-				931F8B0F28D0B2B50009C7A7 /* Popup.storyboard */,
 				930301F128D0486F00F160A3 /* LaunchScreen.storyboard */,
 				930301F428D0486F00F160A3 /* Info.plist */,
 				930301EC28D0486B00F160A3 /* Autolayout_Pratice1.xcdatamodeld */,
@@ -162,7 +159,6 @@
 			files = (
 				930301F328D0486F00F160A3 /* LaunchScreen.storyboard in Resources */,
 				931F8B1628D0C8020009C7A7 /* NanumGothicLight.otf in Resources */,
-				931F8B1028D0B2B50009C7A7 /* Popup.storyboard in Resources */,
 				931F8B1928D0C8020009C7A7 /* NanumGothic.otf in Resources */,
 				930301F028D0486F00F160A3 /* Assets.xcassets in Resources */,
 				930301EB28D0486B00F160A3 /* Main.storyboard in Resources */,

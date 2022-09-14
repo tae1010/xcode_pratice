@@ -12,17 +12,16 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var popupStatusLabel: UILabel!
     
-    var checkPopup: Bool = true // popup 상태
+    var checkPopup: Bool = UserDefault().loadUserdefault() // popup 상태
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(changeLabel), name: .changeLabel, object: nil)
+        self.popupStatusLabel.text = String(self.checkPopup)
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.checkPopup = UserDefault().loadUserDefault()
-        showPopupStatus()
-        print("앱을 실행할때 checkPopup 상태", self.checkPopup)
+        super.viewWillAppear(animated)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -43,35 +42,32 @@ class MainViewController: UIViewController {
     
     // popup 상태 바꾸기
     @IBAction func changePopupStatus(_ sender: UIButton) {
+        self.checkPopup = UserDefault().loadUserdefault()
         self.checkPopup.toggle()
-        UserDefault().saveUserdefault(checkPopup: checkPopup)
-        showPopupStatus()
-    }
-
-    // MARK: - 현재 팝업상태 보여주기
-    func showPopupStatus() {
-        popupStatusLabel.text = String(checkPopup)
+        UserDefault().saveUserdefault(checkPopup: self.checkPopup)
     }
     
     // MARK: - 팝업창 띄우기
     func showPopup() {
-        
         guard let popUpViewController = storyboard?.instantiateViewController(withIdentifier: "PopUpViewController") as? PopUpViewController else { return }
-        popUpViewController.delegate = self
-
         popUpViewController.modalPresentationStyle = .overCurrentContext
         popUpViewController.modalTransitionStyle = .crossDissolve
         self.present(popUpViewController, animated: true, completion: nil)
     }
     
+    // MARK: - selector
+    
+    // label text 바꾸기
+    @objc func changeLabel() {
+        var changeLabel = String(UserDefault().loadUserdefault())
+        print("changeLabel", changeLabel)
+        self.popupStatusLabel.text = changeLabel
+    }
+    
 }
 
-extension MainViewController: CheckPopupDelegate {
-    
-    func checkPopupDelegate(checkPopup: Bool) {
-        print("delegate 실행 후 현재 Popup 상태체크 \(checkPopup)")
-        self.checkPopup = checkPopup
-        showPopupStatus()
-    }
 
+// MARK: - notification을 사용해서 userDefault값이 바뀌면 실행
+extension Notification.Name {
+    static let changeLabel = Notification.Name("changeLabel")
 }
